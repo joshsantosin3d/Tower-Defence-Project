@@ -51,6 +51,9 @@ public class Tower : MonoBehaviour
             {
                 //Deal damage to the currently selected target
                 currentTarget.TakeDamage(damage);
+
+                //Look towards the target
+                transform.LookAt(currentTarget.transform);
             }
             else
             {
@@ -63,7 +66,7 @@ public class Tower : MonoBehaviour
             //Look for a new target and try again next time
             FindTarget();
         }
-        Debug.Log("Tower is shooting");
+        //Debug.Log("Tower is shooting");
     }
 
     // Update is called once per frame
