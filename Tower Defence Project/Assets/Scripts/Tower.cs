@@ -21,7 +21,7 @@ public class Tower : MonoBehaviour
         InvokeRepeating("DamageTarget", 0, fireRate);
     }
 
-    void FindTarget()
+    protected void FindTarget()
     {
         //Search for creep within range
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);
@@ -41,7 +41,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    void DamageTarget()
+    protected virtual void DamageTarget()
     {
         //Check if we even have a target to shoot
         if(currentTarget != null)
