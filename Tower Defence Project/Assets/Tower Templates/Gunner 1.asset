@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f52625c0d8725247be34b3de41b93f2, type: 3}
   m_Name: Gunner 1
   m_EditorClassIdentifier: 
-  range: 5
+  range: 20
   damage: 1
   fireRate: 1
   price: 1

@@ -21,6 +21,8 @@ public class Creep : MonoBehaviour
     public NavMeshAgent agent;      //The thing that handles pathfinding
     Camera cam;                     //Camera reference
 
+    public GameObject deathParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,8 @@ public class Creep : MonoBehaviour
         if(dist < 1f)
         {
             //Deal damage to the manager
-            FindObjectOfType<Manager>().CreepDied(money);
+            FindObjectOfType<Manager>().CreepDied(0);
+            FindObjectOfType<Manager>().ChangeLives(-1);
 
             //and disappear
             Destroy(gameObject);
@@ -56,7 +59,7 @@ public class Creep : MonoBehaviour
     ///  Called whenever something damages the creep
     /// </summary>
     /// <param name="value"></param>
-    public void TakeDamage(float value)
+    public void TakeDamage(float value, Tower damageSource)
     {
         //Subtract health
         health = health - (value);
@@ -67,6 +70,12 @@ public class Creep : MonoBehaviour
         if (health <= 0)
         {
             FindObjectOfType<Manager>().CreepDied(money);
+
+            //Spawn particles
+            GameObject particle = Instantiate(deathParticle, transform.position, Quaternion.identity);
+            Destroy(particle, 5);
+
+            particle.transform.LookAt(damageSource.transform);
 
             //Die
             Destroy(gameObject);

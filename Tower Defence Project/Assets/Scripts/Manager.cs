@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class Manager : MonoBehaviour
 {
     [Header("User Interface")]
     public Button nextWavebutton;
+    public TextMeshProUGUI livesText;
+    public TextMeshProUGUI moneyText;
+    public GameObject combatUI;
+    public GameObject winScreen;
+    public GameObject loseScreen;
 
     [Header("Player data")]
     public int lives;
@@ -34,7 +41,11 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        ChangeMoney();
+        ChangeLives(0);
+        combatUI.SetActive(true);
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -55,6 +66,7 @@ public class Manager : MonoBehaviour
         if(price <= money)          //Is the price less than the reserved money?
         {
             money = money - price;  //If it is, then subtract the money
+            ChangeMoney();
             return true;            //Return true
         }
         else
@@ -76,6 +88,7 @@ public class Manager : MonoBehaviour
     public void CreepDied(float creepValue)
     {
         money = money + creepValue;     //Add money
+        ChangeMoney();
         livingCreeps--;                 //Reduce living creeps
         if(livingCreeps == 0)                       //If that was the last creep alive
         {
@@ -87,6 +100,8 @@ public class Manager : MonoBehaviour
                 {
                     //Finally we have killed them all
                     Debug.Log("You have beaten all the waves. Developer please put in a win screen here");
+                    winScreen.SetActive(true);
+                    combatUI.SetActive(false);
                 }
             }
         }
@@ -138,5 +153,37 @@ public class Manager : MonoBehaviour
             //Also go to the next wave
             waveInAll++;
         }
+    }
+
+    void ChangeMoney()
+    {
+        moneyText.text = "Money: " + money;
+    }
+
+    public void ChangeLives(int value)
+    {
+        lives = lives + value;
+
+        //If lives goes below 0 then you lose
+        if (lives <= 0)
+        {
+            loseScreen.SetActive(true);
+            combatUI.SetActive(false);
+        }
+
+        livesText.text = "Lives: " + lives;
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(creepSpawn, 0.5f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(creepTarget, 0.5f);
     }
 }

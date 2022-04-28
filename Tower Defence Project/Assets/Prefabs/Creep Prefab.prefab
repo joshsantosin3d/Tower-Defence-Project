@@ -290,10 +290,13 @@ MonoBehaviour:
   maxHealth: 10
   speed: 1
   armour: 0
+  money: 0
+  lives: 0
   objective: {x: 6, y: 0, z: -5}
   canvas: {fileID: 2329614439015883783}
   healthBar: {fileID: 2329614439040357550}
   agent: {fileID: 0}
+  deathParticle: {fileID: 7488706241846991772, guid: 2da5a394bf8edea46810de22cd2654a0, type: 3}
 --- !u!195 &2575777308463688733
 NavMeshAgent:
   m_ObjectHideFlags: 0

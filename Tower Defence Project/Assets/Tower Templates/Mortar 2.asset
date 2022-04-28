@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f52625c0d8725247be34b3de41b93f2, type: 3}
   m_Name: Mortar 2
   m_EditorClassIdentifier: 
-  range: 15
+  range: 80
   damage: 15
   fireRate: 4
   price: 5
