@@ -5844,6 +5844,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Node (111)
       objectReference: {fileID: 0}
+    - target: {fileID: 7939315537478989550, guid: 5d8e56e71dd5c1244b107e7b8c184de1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939315537478989550, guid: 5d8e56e71dd5c1244b107e7b8c184de1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939315537478989550, guid: 5d8e56e71dd5c1244b107e7b8c184de1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d8e56e71dd5c1244b107e7b8c184de1, type: 3}
 --- !u!4 &1229269261 stripped
@@ -9127,6 +9139,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3447524746183331273, guid: ad3fe1b89a7cc3a44b736e7fb004d2b5, type: 3}
+      propertyPath: towerPrefab
+      value: 
+      objectReference: {fileID: 570982164130733897, guid: e66356fc5d597dc4e90d1f97253741d1, type: 3}
+    - target: {fileID: 3447524746183331273, guid: ad3fe1b89a7cc3a44b736e7fb004d2b5, type: 3}
+      propertyPath: allTowers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447524746183331273, guid: ad3fe1b89a7cc3a44b736e7fb004d2b5, type: 3}
+      propertyPath: allTowers.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9e4bc7b2947d3cf459199e95a2895439, type: 2}
+    - target: {fileID: 3447524746183331273, guid: ad3fe1b89a7cc3a44b736e7fb004d2b5, type: 3}
+      propertyPath: allTowers.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 27631aff5824d9f47aaf0d1f001cd779, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad3fe1b89a7cc3a44b736e7fb004d2b5, type: 3}
 --- !u!1001 &7143024156854964045
