@@ -9142,7 +9142,7 @@ PrefabInstance:
     - target: {fileID: 3447524746183331273, guid: ad3fe1b89a7cc3a44b736e7fb004d2b5, type: 3}
       propertyPath: towerPrefab
       value: 
-      objectReference: {fileID: 570982164130733897, guid: e66356fc5d597dc4e90d1f97253741d1, type: 3}
+      objectReference: {fileID: 3475185084527176872, guid: 27b519bf81feab646a0176336a630d6e, type: 3}
     - target: {fileID: 3447524746183331273, guid: ad3fe1b89a7cc3a44b736e7fb004d2b5, type: 3}
       propertyPath: allTowers.Array.size
       value: 3

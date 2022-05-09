@@ -12,6 +12,12 @@ public class Tower : MonoBehaviour
     public float fireRate;
     public TargetType targetType = TargetType.close; //How it decides what unit to attack
 
+    [Header("Use Laser")]
+    public bool useLaser = false;
+    public LineRenderer lineRenderer;
+
+    public Transform firepoint;
+
     public Creep currentTarget; //What we are shooting at now
 
     // Start is called before the first frame update
@@ -72,7 +78,16 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (useLaser)
+        {
+            Laser();
+        }
+
     }
 
+    void Laser()
+    {
+        lineRenderer.SetPosition(0, firepoint.position);
+        lineRenderer.SetPosition(1, currentTarget.position);
+    }
 }
