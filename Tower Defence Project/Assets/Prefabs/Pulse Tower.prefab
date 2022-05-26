@@ -112,4 +112,8 @@ MonoBehaviour:
   damage: 0
   fireRate: 0
   targetType: 0
+  useLaser: 0
+  lineRenderer: {fileID: 0}
+  firepoint: {fileID: 0}
   currentTarget: {fileID: 0}
+  effectprefab: {fileID: 5005428742951448362, guid: 16d4eff8fa8ab8d4ba21be50a9a8dbb3, type: 3}

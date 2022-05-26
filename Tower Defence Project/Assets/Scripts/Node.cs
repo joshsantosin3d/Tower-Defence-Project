@@ -69,7 +69,7 @@ public class Node : MonoBehaviour
             spawnedTower.GetComponent<Renderer>().material.color = manager.towerData.towerColour;
 
             //Move it to the node.
-            newObject.transform.position = transform.position;
+            newObject.transform.position = transform.position + Vector3.up*0.5f;
 
             //Get the tower component.
             Tower tower = newObject.GetComponent<Tower>();

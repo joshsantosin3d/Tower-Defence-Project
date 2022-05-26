@@ -22,7 +22,6 @@ public class Creep : MonoBehaviour
     Camera cam;                     //Camera reference
 
     public GameObject deathParticle;
-    internal Vector3 position;
 
     // Start is called before the first frame update
     void Start()

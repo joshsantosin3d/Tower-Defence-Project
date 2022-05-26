@@ -87,7 +87,15 @@ public class Tower : MonoBehaviour
 
     void Laser()
     {
-        lineRenderer.SetPosition(0, firepoint.position);
-        lineRenderer.SetPosition(1, currentTarget.position);
+        lineRenderer.SetPosition(1, firepoint.position);
+        if (currentTarget == null)
+        {
+            lineRenderer.SetPosition(0, firepoint.position);
+        }
+        else
+        {
+            transform.LookAt(currentTarget.transform);
+            lineRenderer.SetPosition(0, currentTarget.transform.position);
+        }
     }
 }
