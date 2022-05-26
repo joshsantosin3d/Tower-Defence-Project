@@ -9,6 +9,7 @@ public class Tower_Projectile : Tower
     public Vector3 spawnPoint = Vector3.up;
     public float projSpeed = 10;
     public float explosionRadius = 4;
+    public GameObject effectprefab;
 
     protected override void DamageTarget()
     {
@@ -52,8 +53,7 @@ public class Tower_Projectile : Tower
         List<Creep> nearbyCreeps = new List<Creep>();           //Store a temp list of all nearby creeps
 
         //Find all colliders within range.
-
-        nearbyColliders = Physics.OverlapSphere(collidePoint, range);
+        nearbyColliders = Physics.OverlapSphere(collidePoint, explosionRadius);
 
         //Filter through the array and make a list of creeps.
         for (int i = 0; i < nearbyColliders.Length; i++)
@@ -63,6 +63,11 @@ public class Tower_Projectile : Tower
             //Avoid the null reference exception error when we inevitably check the ground and there's no creep component on it.
             if (tempCreep != null)
             {
+                //Explosion effect
+                GameObject newEffect = Instantiate(effectprefab, collidePoint, Quaternion.identity);
+                LeanTween.scale(newEffect, new Vector3(explosionRadius*2, 1, explosionRadius*2), 0.2f);
+                LeanTween.color(newEffect, Color.clear, 0.4f);
+                Destroy(newEffect, 1);
                 //nearbyCreeps.Add(tempCreep);
                 tempCreep.TakeDamage(damage, this);
             }

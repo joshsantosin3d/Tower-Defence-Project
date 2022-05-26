@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 40
   damage: 10
-  fireRate: 5
+  fireRate: 2
   price: 3
   upgrade: {fileID: 11400000, guid: d9fae99cb47e6244495820d70306f3a2, type: 2}
   towerColour: {r: 0, g: 0, b: 0, a: 1}

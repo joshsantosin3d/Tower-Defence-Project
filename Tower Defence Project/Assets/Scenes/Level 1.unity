@@ -9155,6 +9155,18 @@ PrefabInstance:
       propertyPath: allTowers.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: 27631aff5824d9f47aaf0d1f001cd779, type: 2}
+    - target: {fileID: 3447524746444726556, guid: ad3fe1b89a7cc3a44b736e7fb004d2b5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447524746844990817, guid: ad3fe1b89a7cc3a44b736e7fb004d2b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447524746977951803, guid: ad3fe1b89a7cc3a44b736e7fb004d2b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad3fe1b89a7cc3a44b736e7fb004d2b5, type: 3}
 --- !u!1001 &7143024156854964045

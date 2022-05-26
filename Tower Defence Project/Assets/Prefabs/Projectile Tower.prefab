@@ -112,9 +112,13 @@ MonoBehaviour:
   range: 0
   damage: 0
   fireRate: 0
-  targetType: 0
+  upgradeData: {fileID: 0}
+  useLaser: 0
+  lineRenderer: {fileID: 0}
+  firepoint: {fileID: 0}
   currentTarget: {fileID: 0}
   projectile: {fileID: 4741490852195596566, guid: 12887086e827b0841b10a5d31c588072, type: 3}
-  spawnPoint: {x: 0, y: 1, z: 0}
+  spawnPoint: {x: 0, y: 2, z: 0}
   projSpeed: 10
   explosionRadius: 4
+  effectprefab: {fileID: 5005428742951448362, guid: 16d4eff8fa8ab8d4ba21be50a9a8dbb3, type: 3}

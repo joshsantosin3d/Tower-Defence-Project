@@ -10,7 +10,7 @@ public class Tower : MonoBehaviour
     public float range;
     public float damage;
     public float fireRate;
-    public TargetType targetType = TargetType.close; //How it decides what unit to attack
+    public TowerSO upgradeData;     //Information on the upgrade
 
     [Header("Use Laser")]
     public bool useLaser = false;
@@ -97,5 +97,27 @@ public class Tower : MonoBehaviour
             transform.LookAt(currentTarget.transform);
             lineRenderer.SetPosition(0, currentTarget.transform.position);
         }
+    }
+
+    private void OnMouseDown()
+    {
+        ///Check if we have an upgrade to set to
+        if (upgradeData == null)
+        {
+            return;
+        }
+
+        Manager manager = FindObjectOfType<Manager>();
+
+        if (manager.BuySomething(upgradeData.price) == false)
+        {
+            return;     //If we can't afford it, then skip to the end.
+        }
+
+        range = upgradeData.range;
+        damage = upgradeData.damage;
+        fireRate = upgradeData.fireRate;
+
+        upgradeData = upgradeData.upgrade;      //This one needs to be done last
     }
 }

@@ -14,6 +14,8 @@ public class Manager : MonoBehaviour
     public GameObject combatUI;
     public GameObject winScreen;
     public GameObject loseScreen;
+    public TextMeshProUGUI highScoreText;
+    public TMP_InputField highScoreInput;
 
     [Header("Player data")]
     public int lives;
@@ -105,6 +107,64 @@ public class Manager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SaveNewScore()
+    {
+        string name = "Player: " + highScoreInput.text;     //Save the player name
+        float score = money;
+        HighScoreData data = SaveSystem.LoadPlayer();       //get current save info
+
+        if (data.scores.Count == 0)     //if there are no scores to begin with
+        {
+            data.scores.Add(score);     //Add just one with no comparisons
+            data.names.Add(name);
+        }
+        else
+        {
+            //Adds the score to the end if it's lower than the lowest
+            if (score <= data.scores[data.scores.Count - 1])
+            {
+                data.scores.Add(score);
+                data.names.Add(name);
+            }
+
+            for (int i = 0; i < data.scores.Count; i++)     //iterate through all the old scores
+            {
+                if (data.scores[i] < score)     //Check if ours is higher or not
+                {
+                    data.scores.Insert(i, score);
+                    data.names.Insert(i, name);
+                    break;      //Don't loop any further
+                    //Then we add in our score here.
+                }
+            }
+        }
+
+        SaveSystem.SavePlayer(data);
+        LoadHighScores();
+    }
+
+    void LoadHighScores()
+    {
+        HighScoreData data = SaveSystem.LoadPlayer();       //Load save data
+
+        string displayString = data.levelName + "\n";       //Build the string to display
+
+        for (int i = 0; i < data.scores.Count; i++)
+        {
+            displayString += data.names[i] + ": ";
+            displayString += data.scores[i] + "\n";         //new line
+        }
+        highScoreText.text = displayString;     //Display the info
+    }
+
+    public void ClearHighScores()
+    {
+        //Make a new "clean" file with no scores
+        HighScoreData clearData = new HighScoreData(SceneManager.GetActiveScene().name);
+        SaveSystem.SavePlayer(clearData);
+        LoadHighScores();       //Display new clear screen.
     }
 
     public void SpawnNextCreep()

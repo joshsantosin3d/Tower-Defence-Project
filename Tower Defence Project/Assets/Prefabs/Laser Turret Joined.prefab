@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2084169580824444572}
   - component: {fileID: 1026797768340163237}
   - component: {fileID: 5499570981103590986}
+  - component: {fileID: 3094516513655619433}
   m_Layer: 0
   m_Name: Laser Turret Joined
   m_TagString: Untagged
@@ -101,7 +102,7 @@ MonoBehaviour:
   range: 0
   damage: 0
   fireRate: 0
-  targetType: 0
+  upgradeData: {fileID: 0}
   useLaser: 1
   lineRenderer: {fileID: 5499570981103590986}
   firepoint: {fileID: 911796321066206707}
@@ -204,3 +205,16 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!65 &3094516513655619433
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570982164130733897}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6171794, y: 0.8384576, z: 1.7181818}
+  m_Center: {x: 0, y: -0.10577121, z: 0.28636357}
